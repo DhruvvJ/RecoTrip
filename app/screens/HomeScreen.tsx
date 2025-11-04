@@ -126,7 +126,16 @@ export default function HomeScreen() {
         </ScrollView>
         <View style={styles.navBar}>
           {navTabs.map((tab, idx) => (
-            <TouchableOpacity key={idx} style={styles.navItem}>
+            <TouchableOpacity
+              key={idx}
+              style={styles.navItem}
+              onPress={() => {
+                if (tab.label === "Profile") {
+                  router.push('/screens/ProfileScreen');
+                }
+                // You can add other navigation handlers here for other tabs
+              }}
+            >
               <View style={[styles.navIconWrap, tab.active && styles.activeNavIcon]}>
                 <Text style={styles.navIcon}>{tab.icon}</Text>
               </View>
@@ -154,7 +163,6 @@ export default function HomeScreen() {
             </View>
           </View>
         </Modal>
-
       </View>
     </ImageBackground>
   );
