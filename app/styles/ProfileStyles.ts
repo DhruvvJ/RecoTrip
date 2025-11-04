@@ -63,8 +63,9 @@ export const styles = StyleSheet.create({
   dataBlock: {
     backgroundColor: 'rgba(44,44,44,0.87)',
     borderRadius: 16,
-    width: width - 32,
+    width: width - 25,
     marginBottom: 14,
+    marginLeft : 10,
     padding: 12,
     shadowColor: '#161e2b',
     shadowOpacity: 0.18,
@@ -114,11 +115,11 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   profileScroll: {
-    paddingBottom: 90, // Room for bottom block
+    paddingBottom: 200, // Room for bottom block
   },
   locationBlock: {
     position: 'absolute',
-    bottom: 0,
+    bottom: 20,
     left: 0,
     right: 0,
     backgroundColor: '#47e2fa',
@@ -128,6 +129,8 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 24,
     borderTopLeftRadius: 18,
     borderTopRightRadius: 18,
+    borderBottomRightRadius : 18,
+    borderBottomLeftRadius : 18,
     shadowColor: '#47e2fa',
     shadowOpacity: 0.75,
     shadowRadius: 22,

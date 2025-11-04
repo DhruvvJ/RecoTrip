@@ -1,24 +1,36 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import { Stack, usePathname } from 'expo-router';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import NavigationBar from '../components/NavigationBar';
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
+export default function Layout() {
+  const pathname = usePathname();
 
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+  console.log("Current Pathname:", pathname);
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const hideNavBarOn = [
+    '/login',
+    '/screens/LoginScreen',
+    '/travelanimation',
+    '/screens/TravelAnimationScreen',
+  ];
+
+  const shouldShowNavBar =
+    pathname !== '/' && // 👈 Hide nav on signup (root)
+    !hideNavBarOn.some((path) =>
+      pathname.toLowerCase().includes(path.toLowerCase())
+    );
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <View style={styles.container}>
+      <Stack />
+      {shouldShowNavBar && <NavigationBar />}
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

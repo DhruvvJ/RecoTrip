@@ -14,14 +14,6 @@ import { styles } from '../styles/HomeStyles';
 
 const username = "Explorer";
 
-const navTabs = [
-  { icon: "⌂", label: "Home", active: true },
-  { icon: "☕︎", label: "Stories" },
-  { icon: "𐀪", label: "Profile" },
-  { icon: "♡", label: "Favourites" },
-  { icon: "⏣", label: "Settings" },
-];
-
 type HomeButtonProps = {
   label: string;
   description?: string | null;
@@ -53,9 +45,9 @@ function HomeButton({ label, description, icon, image, onPress }: HomeButtonProp
 }
 
 export default function HomeScreen() {
+  const router = useRouter();
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const [showLocationModal, setShowLocationModal] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -107,42 +99,21 @@ export default function HomeScreen() {
             description="Your Recommendations!"
             icon="ᨒ"
             image={require('../../assets/images/selectTripbg.jpg')}
-            onPress={() => router.push('/screens/RecommendationsScreen')}
+            onPress={() => router.push('/recommendations')}
           />
           <HomeButton
             label="Bookings"
             description={null}
             icon="𝄜"
             image={require('../../assets/images/bookingsbg.jpg')}
-            onPress={() => router.push('/')}
           />
           <HomeButton
             label="Find nearby attractions"
             description={null}
             icon="⚲"
             image={require('../../assets/images/attractionsbg.jpg')}
-            onPress={() => router.push('/')}
           />
         </ScrollView>
-        <View style={styles.navBar}>
-          {navTabs.map((tab, idx) => (
-            <TouchableOpacity
-              key={idx}
-              style={styles.navItem}
-              onPress={() => {
-                if (tab.label === "Profile") {
-                  router.push('/screens/ProfileScreen');
-                }
-                // You can add other navigation handlers here for other tabs
-              }}
-            >
-              <View style={[styles.navIconWrap, tab.active && styles.activeNavIcon]}>
-                <Text style={styles.navIcon}>{tab.icon}</Text>
-              </View>
-              <Text style={[styles.navText, tab.active && styles.activeNavText]}>{tab.label}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
 
         {/* Location Modal */}
         <Modal visible={showLocationModal} transparent animationType="fade">

@@ -269,7 +269,7 @@ export default function ProfileScreen() {
         </ScrollView>
 
         {/* Glowing Location Block */}
-        <View style={styles.locationBlock}>
+        <View style={[styles.locationBlock, { marginBottom: 80 }]} >
           <Ionicons name="location-sharp" size={24} color="#fff" style={styles.locationIcon} />
           <View style={{ flex: 1, marginLeft: 8 }}>
             <Text style={styles.locationText}>Enable Location</Text>
