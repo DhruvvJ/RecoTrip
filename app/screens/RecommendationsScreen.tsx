@@ -58,7 +58,7 @@ export default function RecommendationsScreen() {
 
   if (loading) {
     return (
-      <ImageBackground source={require('../../assets/images/blackbg.png')} style={styles.backgroundImage} resizeMode="cover">
+      <ImageBackground source={require('../../assets/images/blacktrolly.png')} style={styles.backgroundImage} resizeMode="cover">
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#42C1FA" />
           <Text style={styles.loadingText}>Loading Recommendations...</Text>

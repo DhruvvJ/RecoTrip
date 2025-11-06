@@ -79,7 +79,7 @@ export default function ProfileScreen() {
   if (loading) {
     return (
       <ImageBackground
-        source={require('../../assets/images/blackbg.png')}
+        source={require('../../assets/images/blacktrolly.png')}
         style={styles.backgroundImage}
         resizeMode="cover"
       >
@@ -92,7 +92,7 @@ export default function ProfileScreen() {
 
   return (
     <ImageBackground
-      source={require('../../assets/images/blackbg.png')}
+      source={require('../../assets/images/blacktrolly.png')}
       style={styles.backgroundImage}
       resizeMode="cover"
     >

@@ -112,6 +112,7 @@ export default function HomeScreen() {
             description={null}
             icon="⚲"
             image={require('../../assets/images/attractionsbg.jpg')}
+            onPress={() => router.push('../screens/FindAttractionsScreen')}
           />
         </ScrollView>
 
